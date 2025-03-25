@@ -25,6 +25,88 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Custom CSS to set modern fonts
+st.markdown("""
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+    
+    * {
+        font-family: 'Outfit', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif !important;
+        letter-spacing: -0.015em;
+        line-height: 1.5;
+    }
+    
+    h1 {
+        font-weight: 700 !important;
+        letter-spacing: -0.025em;
+    }
+    
+    h2, h3 {
+        font-weight: 600 !important;
+        letter-spacing: -0.02em;
+    }
+    
+    p, div {
+        font-weight: 400;
+        color: #424242;
+    }
+    
+    .stButton > button {
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border: none;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .stTextInput > div > div > input, .stTextArea > div > div > textarea {
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        padding: 12px 16px;
+        transition: all 0.2s ease;
+    }
+    
+    .stTextInput > div > div > input:focus, .stTextArea > div > div > textarea:focus {
+        border-color: #7c83fd;
+        box-shadow: 0 0 0 3px rgba(124,131,253,0.2);
+    }
+    
+    .stChat .message {
+        border-radius: 16px;
+        padding: 12px 18px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    
+    .stChat .user .message {
+        background-color: #f0f2fe;
+    }
+    
+    .stChat .assistant .message {
+        background-color: #f8f9fa;
+    }
+    
+    .css-18e3th9 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 2px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        border-radius: 8px 8px 0 0;
+        padding: 10px 16px;
+        font-weight: 500;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Cache OpenAI client and Memory instance
 @st.cache_resource
 def get_openai_client():

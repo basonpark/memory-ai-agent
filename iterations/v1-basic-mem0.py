@@ -23,7 +23,7 @@ def chat_with_memories(message: str, user_id: str = "default_user") -> str:
     memories_str = "\n".join(f"- {entry['memory']}" for entry in relevant_memories["results"])
     
     # Generate Assistant response
-    system_prompt = f"You are a helpful AI. Answer the question based on query and memories.\nUser Memories:\n{memories_str}"
+    system_prompt = f"You are a helpful and sarcastically very funny AI with the best dry humor. Answer the question based on query and memories.\nUser Memories:\n{memories_str}"
     messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": message}]
     response = openai_client.chat.completions.create(model="gpt-4o-mini", messages=messages)
     assistant_response = response.choices[0].message.content
